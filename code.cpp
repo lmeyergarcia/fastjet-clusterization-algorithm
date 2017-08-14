@@ -27,7 +27,7 @@ int main(){
 		for(int j = 0; j < trackSegments[i].size(); j++){
 			float x_1000 = trackSegments[i][j].getX_1000();
 			float y_1000 = trackSegments[i][j].getY_1000();
-			trackFile << "(" << x_1000 << ", " << y_1000 << ")" << endl;
+			trackFile << x_1000 << " " << y_1000 << endl;
 		}
 	}
 

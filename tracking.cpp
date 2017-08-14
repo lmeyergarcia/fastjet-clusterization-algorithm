@@ -104,7 +104,7 @@ vector<TrackSegment> Tracking::makeSimpleSegment(vector<PrPixelHit> nextHits, ve
 			float x_one = nextHits[id_next].x();
 			float y_one = nextHits[id_next].y();
 			float z_one = nextHits[id_next].z();
-			float tx = (x_one - x_zero)/(z_one - z_zero)*1000; // x = bx + tx*z
+			float tx = (x_one - x_zero)/(z_one - z_zero)*1000; // x = bx + tx*z, [z] = mm, [x] = um; mm/um = 10**3.
 			float ty = (y_one - y_zero)/(z_one - z_zero)*1000; // y = by + ty*z
 			float bx = x_zero - tx*z_zero*0.001;
 			float by = y_zero - ty*z_zero*0.001;

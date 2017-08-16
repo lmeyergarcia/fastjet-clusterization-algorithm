@@ -12,7 +12,7 @@ int main(){
 	data.prepareData();
 	cout << data.getNoHit() << endl;
 
-	cout << "testando os resultados" << endl;
+	cout << "Testando os resultados" << endl;
  	data.prepareResults();
  	// exit(0);
 

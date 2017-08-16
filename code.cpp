@@ -35,8 +35,8 @@ int main(){
 	for(int i = 0; i < trackSegments.size(); i++){
 		for(int j = 0; j < trackSegments[i].size(); j++){
 			for (int k = 0; k < id_results.size(); k++){
-				unsigned int id1 = trackSegments[i][j].trackSegment[0].m_id;
-				unsigned int id2 = trackSegments[i][j].trackSegment[1].m_id;
+				unsigned int id1 = trackSegments[i][j].trackSegment[0].m_id; 
+				unsigned int id2 = trackSegments[i][j].trackSegment[1].m_id; //id dos hits do simpleSegment
 				status_id_1 = find(id_results[k].begin(), id_results.end(), id1);
 				status_id_2 = find(id_results[k].begin(), id_results.end(), id2);
 				if (status_id_1 != id_results.end() && status_id_2 != results.end)

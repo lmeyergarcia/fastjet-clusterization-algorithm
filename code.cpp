@@ -31,6 +31,7 @@ int main(){
 			trackFile << x_1000 << " " << y_1000 << endl;
 		}
 	}
+	trackFile.close();
 	
 	vector<vector<unsigned int> > id_results;
 	ofstream real("reais.txt");
@@ -39,11 +40,11 @@ int main(){
 		for(int j = 0; j < trackSegments[i].size(); j++){
 			for (int k = 0; k < id_results.size(); k++){
 				vector<PrPixelHit> simpleSegment = trackSegments[i][j].getTrackSegment();
-				int id1 = simpleSegment[0].id(); 
-				int id2 = simpleSegment[1].id(); //id dos hits do simpleSegment
+				unsigned int id1 = simpleSegment[0].id(); 
+				unsigned int id2 = simpleSegment[1].id(); //id dos hits do simpleSegment
 				unsigned int status_id_1 = find(id_results[k].begin(), id_results[k].end(), id1);
 				unsigned int status_id_2 = find(id_results[k].begin(), id_results[k].end(), id2);
-				if (status_id_1 != id_results.end() && status_id_2 != id_results.end()){
+				if (status_id_1 != id_results[k].end() && status_id_2 != id_results[k].end()){
 					float x_1000 = trackSegments[i][j].getX_1000();
 					float y_1000 = trackSegments[i][j].getY_1000();
 					real << x_1000 << " " << y_1000 << endl;

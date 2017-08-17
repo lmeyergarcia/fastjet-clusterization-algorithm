@@ -34,7 +34,7 @@ int main(){
 	
 	vector<vector<unsigned int> > id_results;
 	ofstream real("reais.txt");
-	cout << "Gravando informações da simulação" << cout;
+	cout << "Gravando informações da simulação" << endl;
 	for(int i = 0; i < trackSegments.size(); i++){
 		for(int j = 0; j < trackSegments[i].size(); j++){
 			for (int k = 0; k < id_results.size(); k++){

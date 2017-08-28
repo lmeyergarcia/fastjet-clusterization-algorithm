@@ -13,7 +13,7 @@ const int INITIAL_STATUS = 1;
 const int DIFFERENCE_SENSOR = 3;
 const float BREAKING_ANGLE = 0.005;
 //const float BREAKING_ANGLE = 1.5708;
-const float ACCEPTANCE_ANGLE = 0.9;
+const float ACCEPTANCE_ANGLE = 900;
 
 class Tracking{
   public:

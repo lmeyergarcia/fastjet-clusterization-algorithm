@@ -45,8 +45,8 @@ int main(){
 				vector<PrPixelHit> simpleSegment = trackSegments[i][j].getTrackSegment();
 				unsigned int id1 = simpleSegment[0].id(); 
 				unsigned int id2 = simpleSegment[1].id(); //id dos hits do simpleSegment
-				unsigned int status_id_1 = find(id_results[k].begin(), id_results[k].end(), id1);
-				unsigned int status_id_2 = find(id_results[k].begin(), id_results[k].end(), id2);
+				vector<unsigned int>::iterator status_id_1 = find(id_results[k].begin(), id_results[k].end(), id1);
+				vector<unsigned int>::iterator status_id_2 = find(id_results[k].begin(), id_results[k].end(), id2);
 				if (status_id_1 != id_results[k].end() && status_id_2 != id_results[k].end()){
 					float x_1000 = trackSegments[i][j].getX_1000();
 					float y_1000 = trackSegments[i][j].getY_1000();

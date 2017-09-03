@@ -28,15 +28,15 @@ int main(){
 		for(int j = 0; j < trackSegments[i].size(); j++){
 			float x_1000 = trackSegments[i][j].getX_1000();
 			float y_1000 = trackSegments[i][j].getY_1000();
-			float tx = trackSegments[i][j].get_Tx();
-			float ty = trackSegments[i][j].get_Ty();
+			float tx = trackSegments[i][j].getTx();
+			float ty = trackSegments[i][j].getTy();
 			float angle = sqrt(tx*tx + ty*ty);
 			trackFile << x_1000 << " " << y_1000 << " " << angle << endl; // x_1000 | y_1000 | angle
 		}
 	}
 	trackFile.close();
 	
-	vector<vector<unsigned int> > id_results = DataFile.getResult();
+	vector<vector<unsigned int> > id_results = data.getResult();
 	ofstream real("reais.txt");
 	cout << "Gravando informações da simulação" << endl;
 	for(int i = 0; i < trackSegments.size(); i++){
@@ -47,10 +47,11 @@ int main(){
 				unsigned int id2 = simpleSegment[1].id(); //id dos hits do simpleSegment
 				vector<unsigned int>::iterator status_id_1 = find(id_results[k].begin(), id_results[k].end(), id1);
 				vector<unsigned int>::iterator status_id_2 = find(id_results[k].begin(), id_results[k].end(), id2);
+				int indice;
 				if (status_id_1 != id_results[k].end() && status_id_2 != id_results[k].end()){
 					float x_1000 = trackSegments[i][j].getX_1000();
 					float y_1000 = trackSegments[i][j].getY_1000();
-					real <<  << " " <<  << " " << x_1000 << " " << y_1000 << endl;
+					real << indice << " " << x_1000 << " " << y_1000 << endl;
 				}
 			}
 		}

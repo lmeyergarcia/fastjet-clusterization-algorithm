@@ -111,7 +111,7 @@ vector<TrackSegment> Tracking::makeSimpleSegment(vector<PrPixelHit> nextHits, ve
 			float x_1000 = bx + tx*1000;
 			float y_1000 = by + ty*1000;
 			//see the angle between the two hits
-			if(True  /*sqrt(tx*tx+ty*ty) <= ACCEPTANCE_ANGLE*/){
+			if(true  /*sqrt(tx*tx+ty*ty) <= ACCEPTANCE_ANGLE*/){
                                      	vector<PrPixelHit> tmp;
 				//make segment object
 				tmp.push_back(currentHits[id_current]);

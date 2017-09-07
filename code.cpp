@@ -47,11 +47,13 @@ int main(){
 				unsigned int id2 = simpleSegment[1].id(); //id dos hits do simpleSegment
 				vector<unsigned int>::iterator status_id_1 = find(id_results[k].begin(), id_results[k].end(), id1);
 				vector<unsigned int>::iterator status_id_2 = find(id_results[k].begin(), id_results[k].end(), id2);
+				float tx = trackSegments[i][j].getTx();
+				float ty = trackSegments[i][j].getTy();
+				float angle = sqrt(tx*tx + ty*ty);
 				if (status_id_1 != id_results[k].end() && status_id_2 != id_results[k].end()){
 					float x_1000 = trackSegments[i][j].getX_1000();
 					float y_1000 = trackSegments[i][j].getY_1000();
-					real << k << " " << x_1000 << " " << y_1000 << endl; // indice | x_1000 | y_1000
-
+					real << x_1000 << " " << y_1000 << " " << angle << " " << k << endl; // x_1000 | y_1000 | angle | indice
 				}
 			}
 		}

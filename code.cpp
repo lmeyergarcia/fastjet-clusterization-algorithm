@@ -3,10 +3,14 @@
 #include <fstream>
 //#include "dados.h"
 #include "tracking.h"
+#include <time.h>
 
 using namespace std;
 
 int main(){
+	clock_t t;
+	t = clock();
+	
 	DataFile data;
 	cout << "Rodando codigo: prepareData()" << endl;
 	data.prepareData();
@@ -74,4 +78,7 @@ int main(){
 	}
 
 	return 0; */
+	t = clock() - t;
+	float clicks = t;
+	cout << "O programa demorou " << (clicks/CLOCKS_PER_SEC) << endl;
 }

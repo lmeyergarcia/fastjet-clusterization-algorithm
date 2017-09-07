@@ -8,8 +8,7 @@
 using namespace std;
 
 int main(){
-	clock_t t;
-	t = clock();
+	clock_t t1 = clock();
 	
 	DataFile data;
 	cout << "Rodando codigo: prepareData()" << endl;
@@ -62,12 +61,12 @@ int main(){
 			}
 		}
 	}
+	
+/*	vector<TrackS> tracks = teste.getTracks();
+	cout << "Rodando codigo: compareTracks(tracks)" << endl;
+	data.compareTracks(tracks);
 
-//	vector<TrackS> tracks = teste.getTracks();
-//	cout << "Rodando codigo: compareTracks(tracks)" << endl;
-//	data.compareTracks(tracks);
-
-/*	ofstream trackFile("tracks.txt");
+	ofstream trackFile("tracks.txt");
 	for(int i = 0; i < tracks.size(); i++){
 		vector<PrPixelHit> hits = tracks[i].getHits();
 		trackFile << "(";
@@ -76,9 +75,12 @@ int main(){
 		}
 		trackFile << ")" << endl;
 	}
-
-	return 0; */
-	t = clock() - t;
+	return 0;
+*/
+	clock_t t = clock() - t1; 
+	//t representa o número de ciclos de processamento entre a linha "clock_t t1 = clock();" e esta.
+	//OBS.: A frequencia de processamento depende do sistema.
 	float clicks = t;
-	cout << "O programa demorou " << (clicks/CLOCKS_PER_SEC) << endl;
+	cout << "O programa demorou " << (clicks/CLOCKS_PER_SEC) << " segundos." << endl; 
+	//CLOCKS_PER_SEC é uma expressão que retorna a frequencia de processamento do sistema.
 }

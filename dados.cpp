@@ -81,7 +81,8 @@ void DataFile::prepareResults(){
 	
 	for(int particle = 0; particle < particle.size(); particle++){
 		const Json::Value& il = particles[particle][6];
-		isLong.push_back(il)
+		isLong.push_back(il);
+	}
 
 	for(int i = 0; i < id_results.size(); i++){
 		vector<unsigned int> aux = id_results[i];

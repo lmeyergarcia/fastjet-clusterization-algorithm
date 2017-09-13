@@ -3,7 +3,7 @@
 #include <fstream>
 //#include "dados.h"
 #include "tracking.h"
-#include <time.h>
+#include <chrono>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ int main(){
  	data.prepareResults();
  	// exit(0);
 	
-	clock_t t1 = clock();
+	auto start = chrono::high_resolution_clock::now(); ;
 
 	Tracking teste;
 	cout << "Rodando codigo: makeTracking()" << endl;
@@ -39,12 +39,9 @@ int main(){
 	}
 	trackFile.close();
 	
-	clock_t t = clock() - t1; 
-	//t representa o número de ciclos de processamento entre a linha "clock_t t1 = clock();" e esta.
-	//OBS.: A frequencia de processamento depende do sistema.
-	float clicks = t;
-	cout << "O programa demorou " << (clicks/CLOCKS_PER_SEC) << " segundos." << endl; 
-	//CLOCKS_PER_SEC é uma expressão que retorna a frequencia de processamento do sistema.
+	auto end = chrono::high_resolution_clock::now();
+	chrono::duration<double> dif = end - start;
+	cout << dif.count() << " segundos" << endl;
 	
 	vector<vector<unsigned int> > id_results = data.getResult();
 	ofstream real("reais.txt");

@@ -73,14 +73,11 @@ void DataFile::prepareResults(){
 	for(int particle = 0; particle < particles.size(); particle++){
 		vector<unsigned int> aux;
 		const Json::Value& ids = particles[particle][15];
+		const Json::Value& il = particles[particle][15];
 		for(int id = 0; id < ids.size(); id++){
 			aux.push_back(ids[id].asUInt());
 		}
 		id_results.push_back(aux);
-	}
-	
-	for(int particle = 0; particle < particle.size(); particle++){
-		const Json::Value& il = particles[particle][6];
 		isLong.push_back(il);
 	}
 
@@ -168,4 +165,4 @@ vector<int> DataFile::getNoHitsSensor() {return no_hits_sensor;}
 vector<vector<PrPixelHit> > DataFile::getHits() {return hits;}
 vector<PrPixelHit> DataFile::getHitsSensor(int i) {return hits[i];}
 vector<vector<unsigned int> > DataFile::getResult() {return id_results;}
-vector<unsigned int> DataFile::getIsLong() {return isLong}
+vector<unsigned int> DataFile::getIsLong() {return isLong;}

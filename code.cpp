@@ -7,9 +7,7 @@
 
 using namespace std;
 
-int main(){
-	clock_t t1 = clock();
-	
+int main(){	
 	DataFile data;
 	cout << "Rodando codigo: prepareData()" << endl;
 	data.prepareData();
@@ -18,6 +16,8 @@ int main(){
 	cout << "Testando os resultados" << endl;
  	data.prepareResults();
  	// exit(0);
+	
+	clock_t t1 = clock();
 
 	Tracking teste;
 	cout << "Rodando codigo: makeTracking()" << endl;
@@ -39,6 +39,13 @@ int main(){
 	}
 	trackFile.close();
 	
+	clock_t t = clock() - t1; 
+	//t representa o número de ciclos de processamento entre a linha "clock_t t1 = clock();" e esta.
+	//OBS.: A frequencia de processamento depende do sistema.
+	float clicks = t;
+	cout << "O programa demorou " << (clicks/CLOCKS_PER_SEC) << " segundos." << endl; 
+	//CLOCKS_PER_SEC é uma expressão que retorna a frequencia de processamento do sistema.
+	
 	vector<vector<unsigned int> > id_results = data.getResult();
 	ofstream real("reais.txt");
 	cout << "Gravando informações da simulação" << endl;
@@ -56,11 +63,13 @@ int main(){
 				if (status_id_1 != id_results[k].end() && status_id_2 != id_results[k].end()){
 					float x_1000 = trackSegments[i][j].getX_1000();
 					float y_1000 = trackSegments[i][j].getY_1000();
-					real << x_1000 << " " << y_1000 << " " << angle << " " << k << endl; // x_1000 | y_1000 | angle | indice
+					unsigned int isLong;
+					real << x_1000 << " " << y_1000 << " " << angle << " " << k << " " << isLong << endl; // x_1000 | y_1000 | angle | indice | isLong
 				}
 			}
 		}
 	}
+	real.close()
 	
 /*	vector<TrackS> tracks = teste.getTracks();
 	cout << "Rodando codigo: compareTracks(tracks)" << endl;
@@ -77,10 +86,5 @@ int main(){
 	}
 	return 0;
 */
-	clock_t t = clock() - t1; 
-	//t representa o número de ciclos de processamento entre a linha "clock_t t1 = clock();" e esta.
-	//OBS.: A frequencia de processamento depende do sistema.
-	float clicks = t;
-	cout << "O programa demorou " << (clicks/CLOCKS_PER_SEC) << " segundos." << endl; 
-	//CLOCKS_PER_SEC é uma expressão que retorna a frequencia de processamento do sistema.
+		
 }

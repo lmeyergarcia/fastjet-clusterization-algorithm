@@ -63,13 +63,13 @@ int main(){
 				if (status_id_1 != id_results[k].end() && status_id_2 != id_results[k].end()){
 					float x_1000 = trackSegments[i][j].getX_1000();
 					float y_1000 = trackSegments[i][j].getY_1000();
-					unsigned int isLong = data.getIsLong();
+					vector<unsigned int> isLong = data.getIsLong();
 					real << x_1000 << " " << y_1000 << " " << angle << " " << k << " " << isLong[k] << endl; // x_1000 | y_1000 | angle | indice | isLong
 				}
 			}
 		}
 	}
-	real.close()
+	real.close();
 	
 /*	vector<TrackS> tracks = teste.getTracks();
 	cout << "Rodando codigo: compareTracks(tracks)" << endl;

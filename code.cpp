@@ -17,11 +17,15 @@ int main(){
  	data.prepareResults();
  	// exit(0);
 	
-	auto start = chrono::high_resolution_clock::now(); ;
+	auto start = chrono::high_resolution_clock::now();
 
 	Tracking teste;
 	cout << "Rodando codigo: makeTracking()" << endl;
 	teste.makeTracking(data);
+	
+	auto end = chrono::high_resolution_clock::now();
+	chrono::duration<double> dif = end - start;
+	cout << dif.count() << " segundos" << endl;
 
 	vector<vector<TrackSegment> > trackSegments;
 	ofstream trackFile("tracks.txt");
@@ -38,10 +42,6 @@ int main(){
 		}
 	}
 	trackFile.close();
-	
-	auto end = chrono::high_resolution_clock::now();
-	chrono::duration<double> dif = end - start;
-	cout << dif.count() << " segundos" << endl;
 	
 	vector<vector<unsigned int> > id_results = data.getResult();
 	ofstream real("reais.txt");

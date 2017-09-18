@@ -1,5 +1,7 @@
     #include <stdio.h>
     #include <stdlib.h>
+    #include "tracking.h"
+    using namespace std;
      
     #ifdef __APPLE__
     #include <OpenCL/opencl.h>
@@ -10,8 +12,7 @@
     #define MEM_SIZE (128)
     #define MAX_SOURCE_SIZE (0x100000)
      
-    int ()
-    {
+    int makeSimpleSegment( __global vector<PrPixelHit> nextHits, __global vector<PrPixelHit> currentHits){
     cl_device_id device_id = NULL;
     cl_context context = NULL;
     cl_command_queue command_queue = NULL;
@@ -61,7 +62,7 @@
     ret = clBuildProgram(program, 1, &device_id, NULL, NULL, NULL);
      
     /* Create OpenCL Kernel */
-    kernel = clCreateKernel(program, "hello", &ret);
+    kernel = clCreateKernel(program, "makeSimpleSegment", &ret);
      
     /* Set OpenCL Kernel Parameters */
     ret = clSetKernelArg(kernel, 0, sizeof(cl_mem), (void *)&memobj);

@@ -195,7 +195,7 @@ int main(){
 		hlist[i]->Draw("SAME ");	
 
 	}
-		canvas.Write("aaaaa");
+		canvas.Write("Angulos");
 
 	outfile->Close();
 
